@@ -11,7 +11,11 @@ namespace InheritanceMiniProject
     {
         static void Main(string[] args)
         {
-           
+            List<InventoryItemModel> inventory = new List<InventoryItemModel>();   // 6. Add List
+            inventory.Add(new VehicleModel { DealerFee = 25, ProductName = "Toyota Carisma" });  // 7. Add a Inventory piece-Vehicle
+            inventory.Add(new BookModel { ProductName = "A Tale of Two Cities", NumberOfPages = 350 });  // 8. Add another piece to Inventory-Book
+
+            Console.ReadLine();   // 0. Add
         }
     }
 }
