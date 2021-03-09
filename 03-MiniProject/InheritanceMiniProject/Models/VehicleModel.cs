@@ -2,8 +2,8 @@
 
 namespace InheritanceMiniProject
 {
-    public class VehicleModel 
+    public class VehicleModel : InventoryItemModel
     {
-       
+       public decimal DealerFee { get; set; }
     }
 }

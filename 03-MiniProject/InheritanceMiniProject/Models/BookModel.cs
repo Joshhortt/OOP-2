@@ -2,8 +2,8 @@
 
 namespace InheritanceMiniProject
 {
-    public class BookModel 
+    public class BookModel : InventoryItemModel
     {
-        
+        public int NumberOfPages { get; set; }
     }
 }
