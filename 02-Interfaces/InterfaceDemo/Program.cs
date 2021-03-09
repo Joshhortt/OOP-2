@@ -1,4 +1,5 @@
-﻿using System;
+﻿// Object Oriented Programming - part 2 - Interfaces
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,25 +16,25 @@ namespace InterfaceDemo
         {
             List<IComputerController> controllers = new List<IComputerController>();
 
-            Keyboard keyboard = new Keyboard();
-            GameController gameController = new GameController();
-            BatteryPoweredGameController battery = new BatteryPoweredGameController();
-            BatteryPoweredKeyboard batteryKeyboard = new BatteryPoweredKeyboard();
+            Keyboard keyboard = new Keyboard();  // new Instance
+            GameController gameController = new GameController();  // new Instance
+            BatteryPoweredGameController battery = new BatteryPoweredGameController();  // new Instance
+            BatteryPoweredKeyboard batteryKeyboard = new BatteryPoweredKeyboard();  // new Instance
 
             controllers.Add(keyboard);
             controllers.Add(gameController);
             controllers.Add(battery);
 
-            foreach (IComputerController controller in controllers)
+            foreach (IComputerController controller in controllers)  // foreach loop
             {
                 if (controller is GameController gc)
                 {
-                    
+                  //  
                 }
 
                 if (controller is IBatteryPowered powered)
                 {
-                    
+                   // 
                 }
             }
 

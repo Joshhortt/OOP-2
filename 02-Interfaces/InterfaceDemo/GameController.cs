@@ -4,15 +4,17 @@ namespace InterfaceDemo
 {
     public class GameController : IComputerController, IDisposable
     {
-        public void Connect()
+        public void Connect() // Method
         {
+            //
         }
 
-        public void CurrentKeyPressed()
+        public void CurrentKeyPressed()  // Method
         {
+            //
         }
 
-        public void Dispose()
+        public void Dispose()  // Dispose Method
         {
             // do whatever shutdown tasks needed
         }
