@@ -4,9 +4,8 @@ namespace InheritanceMiniProject
 {
     public class VehicleModel : InventoryItemModel, IPurchasable, IRentable  // 5. Add Inheritance
 													 // 29.  Add Interface IPurchasable  + CTRL + DOT to implement Interface 'Purchase'.
-																// 34. Add Interface IRentable + CTRL + DOT to implement Interfaces 'Rent' & 'ReturnRental'
+													// 34. Add Interface IRentable + CTRL + DOT to implement Interfaces 'Rent' & 'ReturnRental'
 	{
-
 		public decimal DealerFee { get; set; }  // 4. Add property
 
 		public void Purchase()  // 30. Add method created from IPurchasable 29.
