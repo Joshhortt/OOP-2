@@ -1,8 +1,10 @@
 ﻿namespace InheritanceMiniProject
 {
-    public class InventoryItemModel : IInventoryItem  //  58. add Interface inheritance
+    // Inheritance
+    public class InventoryItemModel : IInventoryItem  
     {
-        public string ProductName { get; set; }  // 1. Add property
-        public int QuantityInStock { get; set; }  // 12. Add property
+        // properties
+        public string ProductName { get; set; }  
+        public int QuantityInStock { get; set; }  
     }
 }

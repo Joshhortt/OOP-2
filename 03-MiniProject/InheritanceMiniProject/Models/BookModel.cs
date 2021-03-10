@@ -2,16 +2,18 @@
 
 namespace InheritanceMiniProject
 {
-    public class BookModel : InventoryItemModel, IPurchasable // 3. Add inheritance,
-											   // 24.  Add Interface IPurchasable + CTRL + DOT to implement Interface 'Purchase'.
+	// Inheritance
+	public class BookModel : InventoryItemModel, IPurchasable 
+											  
 	{
-		public int NumberOfPages { get; set; }  // 2. Add property
+		// property
+		public int NumberOfPages { get; set; }  
 
-		public void Purchase()   // 25. Add method created from IPurchasable 24.
+		// method
+		public void Purchase()   
 		{
-			//throw new NotImplementedException();  26. Remove or comment
-			QuantityInStock -= 1;  // 27. check quantity
-			Console.WriteLine("This book has been purchased.");  // 28. add message
+			QuantityInStock -= 1; 
+			Console.WriteLine("This book has been purchased.");  
 		}
 	}
 }

@@ -1,8 +1,10 @@
 ﻿namespace InheritanceMiniProject
 {
-    public interface IRentable : IInventoryItem  //  59. add Interface inheritance
+    // Inheritance
+    public interface IRentable : IInventoryItem  
     {
-        void Rent();  // 13. Add method
-        void ReturnRental();  // 14. Add method
+        // methods
+        void Rent();  
+        void ReturnRental();  
     }
 }

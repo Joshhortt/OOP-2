@@ -2,31 +2,32 @@
 
 namespace InheritanceMiniProject
 {
-    public class VehicleModel : InventoryItemModel, IPurchasable, IRentable  // 5. Add Inheritance
-													 // 29.  Add Interface IPurchasable  + CTRL + DOT to implement Interface 'Purchase'.
-													// 34. Add Interface IRentable + CTRL + DOT to implement Interfaces 'Rent' & 'ReturnRental'
+	// Inheritance
+	public class VehicleModel : InventoryItemModel, IPurchasable, IRentable  
+													
 	{
-		public decimal DealerFee { get; set; }  // 4. Add property
+		// property
+		public decimal DealerFee { get; set; }
 
-		public void Purchase()  // 30. Add method created from IPurchasable 29.
+		// method
+		public void Purchase() 
 		{
-			//throw new NotImplementedException();    31. comment or remove
-			QuantityInStock -= 1;                  // 32. check quantity
-			Console.WriteLine("This vehicle has been purchased");  // 33. add message
+			QuantityInStock -= 1;                  
+			Console.WriteLine("This vehicle has been purchased");  
 		}
 
-		public void Rent() // 35. Add method created from IPurchasable 34.
+		// method
+		public void Rent()
 		{
-			// throw new NotImplementedException(); 36.comment or remove
-			QuantityInStock -= 1;                               //37. check quantity
-			Console.WriteLine("This vehicle has been rented");  //38. add message													    
+			QuantityInStock -= 1;                            
+			Console.WriteLine("This vehicle has been rented");  												    
 		}
 
-		public void ReturnRental() // 35. Add method created from IPurchasable 34.
+		// method
+		public void ReturnRental() 
 		{
-			// throw new NotImplementedException(); 39.comment or remove
-			QuantityInStock += 1;                               // 40. check quantity
-			Console.WriteLine("This vehicle has been returned");// 41. add message
+			QuantityInStock += 1;                              
+			Console.WriteLine("This vehicle has been returned")
 		}
 	}
 }
