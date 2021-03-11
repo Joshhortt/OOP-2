@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DemoLibrary;  // 2.
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,10 @@ namespace AccessModifiersDemo
 	{
 		static void Main(string[] args)
 		{
-			Console.ReadLine();
+			Person person = new Person();  // 1. 
+			person.
+
+			Console.ReadLine();  // 0.
 		}
 	}
 }

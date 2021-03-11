@@ -8,25 +8,57 @@ namespace DemoLibrary
 {
 	public class Person
 	{
-		public string FirstName { get; set; }  // 1.
+		protected string formerLastName = "";   // 14. private variable  // 20. changed private to protected.
 
-		private string _ssn;  // 5.
+		public string FirstName { get; private set; }  // 3.;   12. private set can only be changed inside the class Person.
+													   // but can be read anywher because it's public by default.
+		public string LastName { get; private set; }  // 4.;   13. private set can only be changed inside the class Person.
+													  // but can be read anywher because it's public by default.
 
-		public string SSN   // 4.
+
+		private string _ssn;  // 5.This private is accessible inside the class Person because it's outside the method public string SSN.
+
+		public string SSN   // 6.
 		{
 			get
 			{
-				return $"***-**--{_ssn.Substring(_ssn.Length - 4) }"; // 6.
+				return $"***-**--{_ssn.Substring(_ssn.Length - 4) }"; // 7.
 			}
 			set
 			{
-				_ssn = value; // 7. 
+				_ssn = value; // 8. 
 			}
 		}
 
-		public void SayHello()  // 2.
+		public void ChangeLastName(string newLastName)  // 11.  Method - Passing in newLastName.
 		{
-			Console.WriteLine($"Hello { FirstName }");  // 3.
+			formerLastName = LastName;  // 15. 
+			LastName = newLastName;   // 16.
+		}
+
+		public void SayHello()  // 9.
+		{
+			Console.WriteLine($"Hello { FirstName }");  // 10.
+		}
+	}
+	public class Employee : Person  // 17. class Employee inherits from class Person.
+									// Therefore It get's all the protected members as well like methods or variables, too.
+	{
+		public string GetFormerLastName()  // 18. 
+		{
+			return formerLastName;  // 19. Does not have access to 'formerLastName', because it's private.
+									// 21. Does have acces now because we changed the access modifier for 'formerLastName' to 'protected'.
+		}
+	}
+
+	public class Manager : Employee  // 22. class Manager inherits from class Employee. Employee inherits from Person.
+									 // Therefore have access to all Person's access entities
+									
+	{
+		public string GetAllNames()  // 23. 
+		{
+			return $"{ FirstName }, { LastName }, { formerLastName }";  // 24. 
+									// 25. 
 		}
 	}
 }
