@@ -6,6 +6,15 @@ using System.Threading.Tasks;
 
 namespace DemoLibrary
 {
+	//public class DataAccess  // 26. 
+
+	internal class DataAccess  // 34. access modifier 'internal'.
+	{
+		public string GetConnectionString()  // 27. 
+		{
+			return "Sensitive data";  // 28.
+		}
+	}
 	public class Person
 	{
 		protected string formerLastName = "";   // 14. private variable  // 20. changed private to protected.
@@ -40,7 +49,15 @@ namespace DemoLibrary
 		{
 			Console.WriteLine($"Hello { FirstName }");  // 10.
 		}
+		public void SavePerson()  // 30.
+		{
+			DataAccess data = new DataAccess();  // 31. 
+			string conn = data.GetConnectionString();  // 32. 
+
+			// saves the person
+		}
 	}
+
 	public class Employee : Person  // 17. class Employee inherits from class Person.
 									// Therefore It get's all the protected members as well like methods or variables, too.
 	{
