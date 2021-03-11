@@ -12,7 +12,9 @@ namespace AbstractClassDemo
 	{
 		static void Main(string[] args)
 		{
-
+			Car car = new Car();  // 9. 
+			car.NumberOfWheels = 4;  // 10. 
+			car.Manufacturer = "Honda";
 			Console.ReadLine();  // 1. 
 
 		}
