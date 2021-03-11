@@ -1,9 +1,13 @@
-﻿using DemoLibrary;  // 2.
+﻿// Object Oriented Programming - part 2 - Access Modifiers
+// public, private, protected, internal, private protected , protected internal
+using DemoLibrary;  // 2.
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
+//https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/access-modifiers
 
 namespace AccessModifiersDemo
 {
@@ -40,7 +44,7 @@ namespace AccessModifiersDemo
 												 // 39. Note that formerLastName isprotected but accessible.  45. comment DataAccess data
 			ModifiedDataAccess data = new ModifiedDataAccess();   // 46. 
 			data.GetUnsecureConnectionInfo();   // 47.
-			formerLastName = "test";   // 48.
+			// formerLastName = "test";   // 48.;   51. No more access to that after changing protected to private protected. (Different Assembly).
 		}
 	}
 }

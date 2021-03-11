@@ -19,7 +19,9 @@ namespace DemoLibrary
 	}
 	public class Person
 	{
-		protected string formerLastName = "";   // 14. private variable  // 20. changed private to protected.
+		protected string formerLastName = "";   // 14. private variable  // 20. changed private to protected.  // 49. comment protected
+
+		//private protected string formerLastName = ""; // 50. private protected
 
 		public string FirstName { get; private set; }  // 3.;   12. private set can only be changed inside the class Person.
 													   // but can be read anywher because it's public by default.
