@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace DemoLibrary
 {
-	//public class DataAccess  // 26. 
+	public class DataAccess  // 26. ; 40. (redo to public for sequence purpose)
 
-	internal class DataAccess  // 34. access modifier 'internal'.
+	// internal class DataAccess  // 34. access modifier 'internal'.
+
 	{
-		public string GetConnectionString()  // 27. 
+		//public string GetConnectionString()  // 27. 
+		protected internal string GetConnectionString()   // 41. 
 		{
 			return "Sensitive data";  // 28.
 		}
