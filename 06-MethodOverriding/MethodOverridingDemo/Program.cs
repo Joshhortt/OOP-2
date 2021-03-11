@@ -21,19 +21,7 @@ namespace MethodOverridingDemo
 
 		Console.WriteLine(person);  // 10.
 
-
 			Console.ReadLine();  // 1. 
-		}
-	}
-	public class PersonModel  // 2.
-	{
-		public string FirstName { get; set; }  // 3.
-		public string LastName { get; set; }  // 4.
-		public string Email{ get; set; }  // 5.
-
-		public override string ToString()  // 11. Add method override
-		{
-			return base.ToString();  // 12. Add ToString option
 		}
 	}
 }
