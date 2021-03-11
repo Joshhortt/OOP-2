@@ -6,80 +6,69 @@ using System.Threading.Tasks;
 
 namespace DemoLibrary
 {
-	public class DataAccess  // 26. ; 40. (redo to public for sequence purpose)
+	public class DataAccess  
 
-	// internal class DataAccess  // 34. access modifier 'internal'.
-
+	// internal class DataAccess  
 	{
-		//public string GetConnectionString()  // 27. 
-		protected internal string GetConnectionString()   // 41. 
+		//public string GetConnectionString() 
+		protected internal string GetConnectionString()   
 		{
-			return "Sensitive data";  // 28.
+			return "Sensitive data"; 
 		}
 	}
 	public class Person
 	{
-		protected string formerLastName = "";   // 14. private variable  // 20. changed private to protected.  // 49. comment protected
+		//private string formerLastName = ""; 
+		protected string formerLastName = "";  
+		//private protected string formerLastName = ""; 
 
-		//private protected string formerLastName = ""; // 50. private protected
+		public string FirstName { get; private set; }  
+		public string LastName { get; private set; }  
+													  
 
-		public string FirstName { get; private set; }  // 3.;   12. private set can only be changed inside the class Person.
-													   // but can be read anywher because it's public by default.
-		public string LastName { get; private set; }  // 4.;   13. private set can only be changed inside the class Person.
-													  // but can be read anywher because it's public by default.
-
-
-		private string _ssn;  // 5.This private is accessible inside the class Person because it's outside the method public string SSN.
-
-		public string SSN   // 6.
+		private string _ssn;  
+		public string SSN   
 		{
 			get
 			{
-				return $"***-**--{_ssn.Substring(_ssn.Length - 4) }"; // 7.
+				return $"***-**--{_ssn.Substring(_ssn.Length - 4) }";
 			}
 			set
 			{
-				_ssn = value; // 8. 
+				_ssn = value;
 			}
 		}
 
-		public void ChangeLastName(string newLastName)  // 11.  Method - Passing in newLastName.
+		public void ChangeLastName(string newLastName) 
 		{
-			formerLastName = LastName;  // 15. 
-			LastName = newLastName;   // 16.
+			formerLastName = LastName;
+			LastName = newLastName;  
 		}
 
-		public void SayHello()  // 9.
+		public void SayHello() 
 		{
-			Console.WriteLine($"Hello { FirstName }");  // 10.
+			Console.WriteLine($"Hello { FirstName }"); 
 		}
-		public void SavePerson()  // 30.
+		public void SavePerson() 
 		{
-			DataAccess data = new DataAccess();  // 31. 
-			string conn = data.GetConnectionString();  // 32. 
-
-			// saves the person
+			DataAccess data = new DataAccess();  
+			string conn = data.GetConnectionString(); 
 		}
 	}
 
-	public class Employee : Person  // 17. class Employee inherits from class Person.
-									// Therefore It get's all the protected members as well like methods or variables, too.
+	public class Employee : Person  
 	{
-		public string GetFormerLastName()  // 18. 
+		public string GetFormerLastName()  
 		{
-			return formerLastName;  // 19. Does not have access to 'formerLastName', because it's private.
-									// 21. Does have acces now because we changed the access modifier for 'formerLastName' to 'protected'.
+			return formerLastName;  
 		}
 	}
 
-	public class Manager : Employee  // 22. class Manager inherits from class Employee. Employee inherits from Person.
-									 // Therefore have access to all Person's access entities
-									
+	public class Manager : Employee  								
 	{
-		public string GetAllNames()  // 23. 
+		public string GetAllNames()   
 		{
-			return $"{ FirstName }, { LastName }, { formerLastName }";  // 24. 
-									// 25. 
+			return $"{ FirstName }, { LastName }, { formerLastName }";  						
 		}
 	}
 }
