@@ -2,16 +2,15 @@
 
 namespace MethodOverridingDemo
 {
-	public class PersonModel  // 2.
+	public class PersonModel  
 	{
-		public string FirstName { get; set; }  // 3.
-		public string LastName { get; set; }  // 4.
-		public string Email{ get; set; }  // 5.
+		public string FirstName { get; set; }  
+		public string LastName { get; set; }  
+		public string Email{ get; set; }  
 
-		public override string ToString()  // 11. Add method override
+		public override string ToString()  
 		{
-			//return base.ToString();  // 12. Add ToString option
-			return $"{FirstName} {LastName}";  // 13. Now it does something diffrent
+			return $"{FirstName} {LastName}";  
 		}
 	}
 }

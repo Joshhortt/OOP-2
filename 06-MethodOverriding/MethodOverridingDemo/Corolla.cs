@@ -4,12 +4,11 @@ using System;
 
 namespace MethodOverridingDemo
 {
-	public class Corolla : Car  // 28. 
+	public class Corolla : Car 
 	{
-		//internal override void SetClock()  29. -- 26
-		public override void SetClock()  // 30
+		public override void SetClock() 
 		{
-			Console.WriteLine("Fiddle with the Corolla Clock.");  // 31.
+			Console.WriteLine("Fiddle with the Corolla Clock."); 
 		}
 	}
 }

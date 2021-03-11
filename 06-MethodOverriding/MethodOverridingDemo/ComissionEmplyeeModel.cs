@@ -2,14 +2,14 @@
 
 namespace MethodOverridingDemo
 {
-	public class ComissionEmplyeeModel : EmployeeModel  // 18.
+	public class ComissionEmplyeeModel : EmployeeModel
 	{
-		public decimal ComissionAmount { get; set; }  // 19.
+		public decimal ComissionAmount { get; set; }
 
-		public override decimal GetPaychekAmount(int hoursWorked)  // 20. method override
+		public override decimal GetPaychekAmount(int hoursWorked) 
 		{
-			decimal initialPay = base.GetPaychekAmount(hoursWorked);  // 22.
-			return base.GetPaychekAmount(hoursWorked);  // 21.
+			decimal initialPay = base.GetPaychekAmount(hoursWorked);
+			return base.GetPaychekAmount(hoursWorked); 
 		}
 	}
 }

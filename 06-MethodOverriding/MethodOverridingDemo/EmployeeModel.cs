@@ -2,13 +2,13 @@
 
 namespace MethodOverridingDemo
 {
-	public class EmployeeModel : PersonModel // 14.
+	public class EmployeeModel : PersonModel
 	{
-		public decimal HourlyRate { get; set; }  // 15.
+		public decimal HourlyRate { get; set; }
 
-		public virtual decimal GetPaychekAmount(int hoursWorked)  // 16. method virtual
+		public virtual decimal GetPaychekAmount(int hoursWorked) 
 		{
-			return HourlyRate = hoursWorked;  // 17.
+			return HourlyRate = hoursWorked;
 		}
 	}
 }

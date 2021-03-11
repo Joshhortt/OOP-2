@@ -4,16 +4,16 @@ using System;
 
 namespace MethodOverridingDemo
 {
-	public class Tesla : Car  // 32. 
+	public class Tesla : Car  
 	{
-		public override void StartCar()  // 35. override
+		public override void StartCar()  
 		{
-			Console.WriteLine("Think about your destination.");  // 36.
+			Console.WriteLine("Think about your destination."); 
 		}
 
-		public override void SetClock()  // 33.
+		public override void SetClock() 
 		{
-			Console.WriteLine("It sets itself.");  // 34.
+			Console.WriteLine("It sets itself.");  
 		}
 	}
 }

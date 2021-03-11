@@ -12,16 +12,16 @@ namespace MethodOverridingDemo
 	{
 		static void Main(string[] args)
 		{
-			PersonModel person = new PersonModel  // 6.
+			PersonModel person = new PersonModel  
 			{
-				FirstName = "Josh",  // 7.
-				LastName = "Hortt",  // 8.
-				Email = "joshhortt@yahoo.com"  // 9.
+				FirstName = "Josh",  
+				LastName = "Hortt",  
+				Email = "joshhortt@yahoo.com"  
 		};
 
-		Console.WriteLine(person);  // 10.
+		Console.WriteLine(person);  
 
-			Console.ReadLine();  // 1. 
+			Console.ReadLine();  
 		}
 	}
 }

@@ -4,14 +4,12 @@ using System;
 
 namespace MethodOverridingDemo
 {
-	public abstract class Car // 23. Abstract class
+	public abstract class Car
 	{
-		public virtual void StartCar()  // 24. virtual
+		public virtual void StartCar() 
 		{
-			Console.WriteLine("Turn on key and start");  // 25.
+			Console.WriteLine("Turn on key and start"); 
 		}
-		// internal abstract void SetClock();  // 26. internal abstract is possible but if you would use Interface, it wouldn't be possible because
-												// Interface averything is public.
-		public abstract void SetClock();  // 27. 
+		public abstract void SetClock(); 
 	}
 }
