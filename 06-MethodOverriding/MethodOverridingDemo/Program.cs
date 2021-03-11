@@ -12,23 +12,28 @@ namespace MethodOverridingDemo
 	{
 		static void Main(string[] args)
 		{
-			PersonModel person = new PersonModel
+			PersonModel person = new PersonModel  // 6.
 			{
-				FirstName = "Josh",
-				LastName = "Hortt",
-				Email = "joshhortt@yahoo.com"
+				FirstName = "Josh",  // 7.
+				LastName = "Hortt",  // 8.
+				Email = "joshhortt@yahoo.com"  // 9.
 		};
 
-		Console.WriteLine(person);
+		Console.WriteLine(person);  // 10.
 
 
-			Console.ReadLine();
+			Console.ReadLine();  // 1. 
 		}
 	}
-	public class PersonModel
+	public class PersonModel  // 2.
 	{
-		public string FirstName { get; set; }
-		public string LastName { get; set; }
-		public string Email{ get; set; }
+		public string FirstName { get; set; }  // 3.
+		public string LastName { get; set; }  // 4.
+		public string Email{ get; set; }  // 5.
+
+		public override string ToString()  // 11. Add method override
+		{
+			return base.ToString();  // 12. Add ToString option
+		}
 	}
 }
