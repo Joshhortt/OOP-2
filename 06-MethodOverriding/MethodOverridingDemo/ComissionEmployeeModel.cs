@@ -2,7 +2,7 @@
 
 namespace MethodOverridingDemo
 {
-	public class ComissionEmplyeeModel : EmployeeModel
+	public class ComissionEmployeeModel : EmployeeModel
 	{
 		public decimal ComissionAmount { get; set; }
 
