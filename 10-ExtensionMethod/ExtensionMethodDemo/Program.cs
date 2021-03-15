@@ -1,4 +1,5 @@
-﻿using System;
+﻿// Object Oriented Programming - part 2 - Extension Method 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,59 +11,59 @@ namespace ExtensionMethodDemo
     {
         static void Main(string[] args)
         {
-            HotelRoomModel room = new HotelRoomModel();  // 24.
+            HotelRoomModel room = new HotelRoomModel();  
 
-            room.TurnOnAir().SetTemperature(32).OpenShades();  // 25. three extensions
+            room.TurnOnAir().SetTemperature(32).OpenShades();  
 
-            room.TurnOffAir().CloseShades();  // 26.  two extension
+            room.TurnOffAir().CloseShades();  
 
-            "Extension Method".PrintToConsole();  // 1.
-            Console.ReadLine();  // 0.
+            "Extension Method".PrintToConsole();  
+            Console.ReadLine();  
         }
     }
 
-    public class HotelRoomModel  // 2. class
+    public class HotelRoomModel  
     {
-        public int Temperature { get; set; }   // 3. prop
-        public bool IsAirRunning { get; set; }  // 4. prop 
-        public bool AreShadesOpen { get; set; }  // 5. prop
+        public int Temperature { get; set; }  
+        public bool IsAirRunning { get; set; }  
+        public bool AreShadesOpen { get; set; }  
     }
 
-    public static class ExtensionSamples  // 6.  class
+    public static class ExtensionSamples  
     {
-        public static void PrintToConsole(this string message)  // 7. Extension Method with 'this' keyword
+        public static void PrintToConsole(this string message)  
         {
-            Console.WriteLine(message);  // 8.
+            Console.WriteLine(message);  
         }
 
-        public static HotelRoomModel TurnOnAir(this HotelRoomModel room)  // 9.  Extension Method with 'this' keyword
+        public static HotelRoomModel TurnOnAir(this HotelRoomModel room)  
         {
-            room.IsAirRunning = true;  // 10. set to true 
-            return room;  // 11. 
+            room.IsAirRunning = true;  
+            return room;   
         }
 
-        public static HotelRoomModel TurnOffAir(this HotelRoomModel room)  // 21. Extension Method with 'this' keyword
+        public static HotelRoomModel TurnOffAir(this HotelRoomModel room) 
         {
-            room.IsAirRunning = false;  // 22. set to false
-            return room;  // 23.
+            room.IsAirRunning = false;
+            return room;
         }
 
-        public static HotelRoomModel SetTemperature(this HotelRoomModel room, int temperature)  //12. Extension Method with 'this' keyword
+        public static HotelRoomModel SetTemperature(this HotelRoomModel room, int temperature) 
         {
-            room.Temperature = temperature;  // 13.
-            return room;  // 14. 
+            room.Temperature = temperature;  
+            return room;   
         }
 
-        public static HotelRoomModel OpenShades(this HotelRoomModel room)  // 15. Extension Method with 'this' keyword
+        public static HotelRoomModel OpenShades(this HotelRoomModel room)  
         {
-            room.AreShadesOpen = true;  // 16. set to true
-            return room;  // 17.
+            room.AreShadesOpen = true;  
+            return room;  
         }
 
-        public static HotelRoomModel CloseShades(this HotelRoomModel room)  // 18. Extension Method with 'this' keyword
+        public static HotelRoomModel CloseShades(this HotelRoomModel room)  
         {
-            room.AreShadesOpen = false;  // 19. set to false
-            return room;  // 20.
+            room.AreShadesOpen = false;  
+            return room;  
         }
     }
 }
