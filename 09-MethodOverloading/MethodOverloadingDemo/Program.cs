@@ -11,80 +11,66 @@ namespace MethodOverloadingDemo
 	{
 		static void Main(string[] args)
 		{
-			var person = new PersonModel("Josh","Hortt");  // 14. 
+			var person = new PersonModel("Josh","Hortt");
 
-			//person.GenerateEmail("gmail.com", false);  // 26.
-			person.GenerateEmail();  // 33.
+			person.GenerateEmail();  
 
-			Console.WriteLine(person.Email);  // 27.
+			Console.WriteLine(person.Email); 
 
-			Console.ReadLine();  // 1.
+			Console.ReadLine(); 
 		}
 	}
 
-	public class PersonModel  // 2.
+	public class PersonModel  
 	{ 
-	public string FirstName { get; set; }  // 3.
+	public string FirstName { get; set; }  
 
-	public string LastName { get; set; }  // 4.
+	public string LastName { get; set; }  
 
-	public string Email { get; set; }  // 5.
+	public string Email { get; set; } 
 
-	public PersonModel()  // 6.  Constructor( 3 methods *** with the same name, unless ther is one that has different signature line)
+	public PersonModel()  
 	{
-		// Constructor 
+		
 	}
 
-	//--- > 1+ Overloading
-	public PersonModel(string firstName, string lastName, string email)  // 7. ( *** )
+	public PersonModel(string firstName, string lastName, string email) 
 	{
-		FirstName = firstName;  // 8.
-		LastName = lastName;  // 9.
-		Email = email;  // 10.
+		FirstName = firstName;  
+		LastName = lastName; 
+		Email = email; 
 	}
 
-	// --- > 2+ Overloading
-	public PersonModel(string firstName, string lastName)  // 11. ( *** )
+	
+	public PersonModel(string firstName, string lastName) 
 		{
-			FirstName = firstName;  // 12.
-			LastName = lastName;  // 13.
-			
+			FirstName = firstName; 
+			LastName = lastName;  
 		}
 
-		public void GenerateEmail()  // 15.
+		public void GenerateEmail() 
 		{
-			//Email = $"{FirstName}.{LastName}@aol.com";  // 16.  // 27.
-			GenerateEmail("aol.com", false);    // 28. refactor, because of too much repetition
+			GenerateEmail("aol.com", false);    
 		}
-		public void GenerateEmail(string domain)  // 17.
+		public void GenerateEmail(string domain) 
 		{
-			//Email = $"{ FirstName }.{ LastName }@{ domain }";  // 18.  // 29.
-			GenerateEmail(domain, false);  // 30.   refactor, because of too much repetition
+			GenerateEmail(domain, false);  
 		}
 
-		public void GenerateEmail(bool firstInitialMethod)  // 19.
+		public void GenerateEmail(bool firstInitialMethod)  
 		{
-			GenerateEmail("aol.com", false);   // 32.  refactor, because of too much repetition
-
-			//if (firstInitialMethod == true)  // 20.   // 31. comment block
-			//{
-			//	Email = $"{ FirstName.Substring(0,1) }{ LastName }@aol.com";  // 20.b
-			//}
-			//else
-			//{
-			//	Email = $"{ FirstName }.{ LastName }@aol.com";  // 21.
-			//}
+			GenerateEmail("aol.com", false);   
 		}
 
-		public void GenerateEmail(string domain, bool firstInitialMethod)  // 22.
+		public void GenerateEmail(string domain, bool firstInitialMethod) 
 		{
-			if (firstInitialMethod == true)  // 23.
+			if (firstInitialMethod == true) 
 			{
-				Email = $"{ FirstName.Substring(0, 1) }{ LastName }@{ domain }";  // 24.
+				Email = $"{ FirstName.Substring(0, 1) }{ LastName }@{ domain }";  
 			}
 			else
 			{
-				Email = $"{ FirstName }.{ LastName }@{ domain }";  // 25.
+				Email = $"{ FirstName }.{ LastName }@{ domain }"; 
 			}
 		}
 	}
