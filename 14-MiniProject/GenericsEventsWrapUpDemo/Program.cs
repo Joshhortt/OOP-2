@@ -57,12 +57,26 @@ namespace GenericsEventsWrapUpDemo
 			foreach (var item in items)  // Looping through the items
 			{
 				row = "";
+				bool badWordDetected = false;
+
 				foreach (var col in columns)
 				{
-					row += $",{ col.GetValue(item, null) }";  
+					string val = col.GetValue(item, null).ToString();
+
+					badWordDetected = BadWordDetector(val);
+					if (BadWordDetector(val) == true)
+					{
+						break;  // will break us out of this foreach loop
+					}
+
+					row += $",{ val }";
 				}
-				row = row.Substring(1); 
-				rows.Add(row);
+
+				if (badWordDetected == false)
+				{
+					row = row.Substring(1);
+					rows.Add(row);
+				}
 			}
 
 			File.WriteAllLines(filePath, rows);  // copying to File CSV
@@ -76,6 +90,7 @@ namespace GenericsEventsWrapUpDemo
 			{
 			output = true;
 			}
+
 			return output;
 		}
 	}
