@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace GenericsDemo
 {
-    class Program
+	partial class Program
     {
         static void Main(string[] args)
         {
@@ -21,44 +21,6 @@ namespace GenericsDemo
             }
 
             Console.ReadLine();
-        }
-
-
-        public class GenericHelper<T> where T : IErrorCheck
-        {
-            public List<T> Items { get; set; } = new List<T>();
-            public List<T> RejectedItems { get; set; } = new List<T>();
-
-            public void CheckItemAndAdd(T item)
-            {
-                if (item.HasError == false)
-                {
-                    Items.Add(item);
-                }
-                else
-                {
-                    RejectedItems.Add(item);
-                }
-            }
-        }
-
-        public interface IErrorCheck
-        {
-            bool HasError { get; set; }
-        }
-
-        public class CarModel : IErrorCheck
-        {
-            public string Manufacturer { get; set; }
-            public int YearManufactured { get; set; }
-            public bool HasError { get; set; }
-        }
-
-        public class PersonModel : IErrorCheck
-        {
-            public string FirstName { get; set; }
-            public string LastName { get; set; }
-            public bool HasError { get; set; }
         }
     }
 }
