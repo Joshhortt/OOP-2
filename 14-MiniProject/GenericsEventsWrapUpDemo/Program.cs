@@ -12,35 +12,49 @@ namespace GenericsEventsWrapUpDemo
 	{
 		static void Main(string[] args)
 		{
-			// New List Instance people
+			
 			List<PersonModel> people = new List<PersonModel>
 			{
-				// 3 persons
-				new PersonModel{FirstName = "Josh", LastName = "Hortt", Email = "joshhortt@yahoo.com"},
+				new PersonModel{FirstName = "Josh", LastName = "Horttdarnit", Email = "joshhortt@yahoo.com"},
 				new PersonModel{FirstName = "Ana", LastName = "Horta", Email = "joshhortt@yahoo.com"},
 				new PersonModel{FirstName = "Sofia", LastName = "Nasala", Email = "joshhortt@yahoo.com"}
 			};
-
-			// New List Instance cars
+			
 			List<CarModel> cars = new List<CarModel>
 			{
-				// 3 cars
-				new CarModel{Manufacturer = "Mitsubishi", Model = "Spacestar"},
+				new CarModel{Manufacturer = "Mitsubishi", Model = "DARNSpacestar"},
 				new CarModel{Manufacturer = "Mini", Model = "Cooper S"},
-				new CarModel{Manufacturer = "VW", Model = "Beetle"}
+				new CarModel{Manufacturer = "VW", Model = "hackBeetle"}
 
 			};
 
-			people.SaveToCSV(@"C:\Temp\SavedFiles\people.csv"); // saving to file path
-			cars.SaveToCSV(@"C:\Temp\SavedFiles\cars.csv");  // saving to file path
+			DataAccess<PersonModel> peopleData = new DataAccess<PersonModel>();
+			peopleData.BadEntryFound += PeopleData_BadEntryFound;
+			peopleData.SaveToCSV(people, @"C:\Temp\SavedFiles\people.csv");
+
+			DataAccess<CarModel> carData = new DataAccess<CarModel>();
+			carData.BadEntryFound += CarData_BadEntryFound;
+			carData.SaveToCSV(cars, @"C:\Temp\SavedFiles\cars.csv"); 
 
 			Console.ReadLine();
 		}
+
+		private static void CarData_BadEntryFound(object sender, CarModel e)
+		{
+			Console.WriteLine($"Bad entry for {e.Manufacturer} {e.Model} ");
+		}
+
+		private static void PeopleData_BadEntryFound(object sender, PersonModel e)
+		{
+			Console.WriteLine($"Bad entry found for {e.FirstName} {e.LastName} ");
+		}
 	}
-	public static class DataAccess  // Method
+
+	public class DataAccess<T> where T : new()   
 	{
-		public static void SaveToCSV<T>(this List<T> items, string filePath) where T : new() // generic 'T' and extension method 'this'.
-																							 // Add also parameter string filePath
+		public event EventHandler<T> BadEntryFound;// Create Event Handler
+		
+		public void SaveToCSV(List<T> items, string filePath)   
 		{
 			List<string> rows = new List<string>();
 			T entry = new T();
@@ -66,13 +80,14 @@ namespace GenericsEventsWrapUpDemo
 					badWordDetected = BadWordDetector(val);
 					if (BadWordDetector(val) == true)
 					{
+						BadEntryFound?.Invoke(this, item);  // Invoke it
 						break;  // will break us out of this foreach loop
 					}
 
 					row += $",{ val }";
 				}
 
-				if (badWordDetected == false)
+				if (badWordDetected == false)  
 				{
 					row = row.Substring(1);
 					rows.Add(row);
@@ -82,7 +97,7 @@ namespace GenericsEventsWrapUpDemo
 			File.WriteAllLines(filePath, rows);  // copying to File CSV
 		}
 
-		private static bool BadWordDetector(string stringToTest)  // Method that is going to detect if a bad word is within  a string
+		private bool BadWordDetector(string stringToTest)  // Method that is going to detect if a bad word is within a string.
 		{
 			bool output = false;
 			string lowerCaseTest = stringToTest.ToLower();
