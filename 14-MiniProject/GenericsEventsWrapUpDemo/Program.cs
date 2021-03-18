@@ -52,23 +52,23 @@ namespace GenericsEventsWrapUpDemo
 
 	public class DataAccess<T> where T : new()   
 	{
-		public event EventHandler<T> BadEntryFound;// Create Event Handler
+		public event EventHandler<T> BadEntryFound;
 		
 		public void SaveToCSV(List<T> items, string filePath)   
 		{
 			List<string> rows = new List<string>();
 			T entry = new T();
-			var columns = entry.GetType().GetProperties();  // Now I have a list of columns
+			var columns = entry.GetType().GetProperties(); 
 
 			string row = "";
-			foreach (var col in columns)  // looping trough  the Headers 
+			foreach (var col in columns)  
 			{
-				row += $",{ col.Name }";  // adds a coma  between columns
+				row += $",{ col.Name }";  
 			}
-			row = row.Substring(1); //cuts off the first coma right before the first columns name in position '0'. (1) Jumps one start position
-			rows.Add(row);                      //FirstName,LastName,Email  -- > How the CSV  row will look like
+			row = row.Substring(1); 
+			rows.Add(row);                      
 
-			foreach (var item in items)  // Looping through the items
+			foreach (var item in items)  
 			{
 				row = "";
 				bool badWordDetected = false;
@@ -80,8 +80,8 @@ namespace GenericsEventsWrapUpDemo
 					badWordDetected = BadWordDetector(val);
 					if (BadWordDetector(val) == true)
 					{
-						BadEntryFound?.Invoke(this, item);  // Invoke it
-						break;  // will break us out of this foreach loop
+						BadEntryFound?.Invoke(this, item);  
+						break; 
 					}
 
 					row += $",{ val }";
@@ -94,10 +94,10 @@ namespace GenericsEventsWrapUpDemo
 				}
 			}
 
-			File.WriteAllLines(filePath, rows);  // copying to File CSV
+			File.WriteAllLines(filePath, rows);  
 		}
 
-		private bool BadWordDetector(string stringToTest)  // Method that is going to detect if a bad word is within a string.
+		private bool BadWordDetector(string stringToTest)  
 		{
 			bool output = false;
 			string lowerCaseTest = stringToTest.ToLower();
