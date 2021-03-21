@@ -29,12 +29,12 @@ namespace FastMovingTraffic
 
 		// properties
 		public string Name { get; set; }
-		public string HighwayType{ get; set; }
+		public string HighwayType { get; set; } = "NA";
 		public char Direction { get; set; }
-		public string Surface { get; set; }
-		public int NumbLanes { get; set; }
-		public bool Toll { get; set; }
-		public string Maintainance { get; set; }
+		public string Surface { get; set; } = "NA";
+		public int? NumbLanes { get; set; }
+		public bool? Toll { get; set; }
+		public string Maintainance { get; set; } = "NA";
 
 		// constructors
 
@@ -100,6 +100,14 @@ namespace FastMovingTraffic
 			}
 		}
 
+		// private method
+		private string HowManyLanes()
+		{
+			if (NumbLanes == null)
+				return "NA";
+			else
+				return NumbLanes.ToString();
+		}
 
 		// Tostring method that return everything
 		public override string ToString()
@@ -107,10 +115,10 @@ namespace FastMovingTraffic
 			//return base.ToString();
 			return $"Highway Name: {Name}\n" +
 				   $"Highway Type: {HighwayType}\n" +
-				   $"Direction: {Direction}\n" +
+				   $"Direction: {GetDirections()}\n" +   // change property to method call
 				   $"Surface: {Surface}\n" +
-				   $"Number of Lanes: {NumbLanes}\n" +
-				   $"Toll: {Toll}\n" +
+				   $"Number of Lanes: {HowManyLanes()}\n" + // change property to method call
+				   $"Toll: {IsHighwayToll()}\n" +  // change property to method call
 				   $"Maintainance: {Maintainance}\n";
 		}
 	}
