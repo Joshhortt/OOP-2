@@ -13,7 +13,7 @@ namespace FastMovingTraffic
 		{
 			Yes,
 			No,
-			Nob
+			NA
 		}
 
 		public enum Directions
@@ -22,7 +22,7 @@ namespace FastMovingTraffic
 			East,
 			South,
 			West,
-			Nob
+			NA
 		}
 
 
@@ -66,7 +66,41 @@ namespace FastMovingTraffic
 			NumbLanes = numbLanes;
 		}
 
-	
+		// method that return enums IsToll
+		public IsToll IsHighwayToll()
+		{
+			switch (Toll)
+			{
+				case true:
+					return IsToll.Yes;
+				case false:
+					return IsToll.No;
+				default:
+					return IsToll.NA;
+									
+			}
+		}
+
+		// method that return enums Directions
+		public Directions GetDirections()
+		{
+			switch (Direction)
+			{
+				case 'N':
+					return Directions.North;
+				case 'E':
+					return Directions.East;
+				case 'S':
+					return Directions.South;
+				case 'W':
+					return Directions.West;
+				default:
+					return Directions.NA;
+
+			}
+		}
+
+
 		// Tostring method that return everything
 		public override string ToString()
 		{
