@@ -1,4 +1,15 @@
 ﻿// Object Oriented Programming - part 2 - Final-Project 
+/*
+Created a Highway class that can be used as extra documentation with directions. 
+Include data members such as name of highway, type (i.e. Avenue, Blvd., Lane, Intersection, etc.), 
+direction (i.e., E, W, N, or S), surface (i.e. blacktop, concrete, composite), 
+number of lanes, toll or no toll, and the party that maintains it.
+Wrote instance methods that returns the full name of the highway, full name of the highway and whether it is toll or not, 
+and full name of the highway and the number of lanes. 
+Also included a ToString( ) method that returns all data members with appropriate labels.
+Added some constructors to make the class flexible.
+*/
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
