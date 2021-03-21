@@ -8,6 +8,25 @@ namespace FastMovingTraffic
 {
 	class Highway
 	{
+		// enums
+		public enum IsToll
+		{
+			Yes,
+			No,
+			Nob
+		}
+
+		public enum Directions
+		{
+			North,
+			East,
+			South,
+			West,
+			Nob
+		}
+
+
+
 		// properties
 		public string Name { get; set; }
 		public string HighwayType{ get; set; }
@@ -47,8 +66,8 @@ namespace FastMovingTraffic
 			NumbLanes = numbLanes;
 		}
 
+	
 		// Tostring method that return everything
-
 		public override string ToString()
 		{
 			//return base.ToString();
