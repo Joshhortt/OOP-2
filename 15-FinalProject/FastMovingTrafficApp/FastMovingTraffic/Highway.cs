@@ -6,27 +6,8 @@ using System.Threading.Tasks;
 
 namespace FastMovingTraffic
 {
-	class Highway
+	partial class Highway
 	{
-		// enums
-		public enum IsToll
-		{
-			Yes,
-			No,
-			NA
-		}
-
-		public enum Directions
-		{
-			North,
-			East,
-			South,
-			West,
-			NA
-		}
-
-
-
 		// properties
 		public string Name { get; set; }
 		public string HighwayType { get; set; } = "NA";
@@ -36,8 +17,8 @@ namespace FastMovingTraffic
 		public bool? Toll { get; set; }
 		public string Maintainance { get; set; } = "NA";
 
-		// constructors
 
+		// constructors
 		public Highway(string name, string type, char direction, string surface, int numbLanes, bool toll, string maintainance)
 		{
 			Name = name;
@@ -100,7 +81,7 @@ namespace FastMovingTraffic
 			}
 		}
 
-		// private method
+		// private method if null
 		private string HowManyLanes()
 		{
 			if (NumbLanes == null)
